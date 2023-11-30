@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html style="width: 1280px; height: 1024px;">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="/wai/wai.js"></script>
+    <link href="/wai/default.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <grid id="grid1" onrecordclick="grid1Recordclick(event);" style="position: absolute; left: 40px; top: 152px; width: 976px; height: 208px;">
+        "options" : {
+          "editable":false
+          ,"columnHeight":20
+          ,"cellHeight":20
+          ,"fixColumn":0
+          ,"aggregate":""
+          ,"appendmode":false
+          ,"autohiddencols":false
+          ,"autofit":false
+          ,"contextmenu":true
+          ,"indicator":{"show":false,"width":30}
+          ,"selector":{"show":false,"width":20,"checked":"none","type":"check"}
+          ,"group":[]
+          ,"columns" : [
+            {"text":"Ref No","alignment":"center","width":100,"type":"column","height":20,"editable":"false","visible":"true","sortable":"true","sortType":"string","editor":{"type":"text","alignment":"center","equalBlank":""},"style":"","filter":"","field":"Ref_No"}
+            ,{"text":"Status","alignment":"center","width":100,"type":"column","height":20,"editable":"false","visible":"true","sortable":"true","sortType":"string","editor":{"type":"text","alignment":"center","equalBlank":""},"style":"","filter":"","field":"Status"}
+            ,{"text":"Branch","alignment":"center","width":100,"type":"column","height":20,"editable":"false","visible":"true","sortable":"true","sortType":"string","editor":{"type":"text","alignment":"center","equalBlank":""},"style":"","filter":"","field":"Branch"}
+            ,{"text":"CIF No","alignment":"center","width":100,"type":"column","height":20,"editable":"false","visible":"true","sortable":"true","sortType":"string","editor":{"type":"text","equalBlank":"","alignment":"center"},"style":"","filter":"","field":"CIF_No"}
+            ,{"text":"Type","alignment":"center","width":100,"type":"column","height":20,"editable":"false","visible":"true","sortable":"true","sortType":"string","editor":{"type":"text","alignment":"center","equalBlank":""},"style":"","filter":"","field":"Type"}
+            ,{"text":"Trans Type","alignment":"center","width":100,"type":"column","height":20,"editable":"false","visible":"true","sortable":"true","sortType":"string","editor":{"type":"text","equalBlank":"","alignment":"center"},"style":"","filter":"","field":"Trans_Type"}
+            ,{"text":"From No","alignment":"center","width":100,"type":"column","height":20,"editable":"false","visible":"true","sortable":"true","sortType":"string","editor":{"type":"text","alignment":"center","equalBlank":""},"style":"","filter":"","field":"From_No"}
+            ,{"text":"To No","alignment":"center","width":100,"type":"column","height":20,"editable":"false","visible":"true","sortable":"true","sortType":"string","editor":{"type":"text","alignment":"center","equalBlank":"","maxlength":""},"style":"","filter":"","field":"To_No"}
+            ,{"text":"CCY","alignment":"center","width":100,"type":"column","height":20,"editable":"false","visible":"true","sortable":"true","sortType":"string","editor":{"type":"text","alignment":"center","equalBlank":"","maxlength":""},"style":"","filter":"","field":"CCY"}
+            ,{"text":"Amount","alignment":"center","width":100,"type":"column","height":20,"editable":"false","visible":"true","sortable":"true","sortType":"string","editor":{"type":"text","alignment":"center","equalBlank":"","maxlength":""},"style":"","filter":"","field":"Amount"}
+            ,{"text":"Fee Exmp","alignment":"center","width":100,"type":"column","height":20,"editable":"false","visible":"true","sortable":"true","sortType":"string","editor":{"type":"text","alignment":"center","equalBlank":"","maxlength":""},"style":"","filter":"","field":"Fee_Exmp"}
+            ,{"text":"Open Date","alignment":"center","width":100,"type":"column","height":20,"editable":"false","visible":"true","sortable":"true","sortType":"string","editor":{"type":"text","alignment":"center","equalBlank":"","maxlength":""},"style":"","filter":"","field":"Open_Date"}
+            ,{"text":"Expire Date","alignment":"center","width":100,"type":"column","height":20,"editable":"false","visible":"true","sortable":"true","sortType":"string","editor":{"type":"text","alignment":"center","equalBlank":"","maxlength":""},"style":"","filter":"","field":"Expire_Date"}
+          ]
+          ,"style":{}
+          ,"effect":{"columnHighlight":true}
+          ,"size":{"vertScrollWidth":19}
+          ,"footer":{"show":true,"height":24}
+          ,"conditionalstyle":[]
+        },
+        "data":[]
+    </grid>
+    <div id="div1" style="position: absolute; left: 40px; top: 32px; width: 976px; height: 80px; background-color: rgb(231, 242, 213);">
+        <label id="label1" style="position: absolute; left: 48px; top: 8px; width: 96px; height: 24px; font-size: 16px;">Period<dateedit id="edit_Open_Date" dateOrder="yyyymmdd" style="position: absolute; left: 56px; top: 0px; width: 96px; height: 24px;"></dateedit>
+            <dateedit id="edit_Expire_Date" dateOrder="yyyymmdd" style="position: absolute; left: 176px; top: 0px; width: 96px; height: 24px;"></dateedit>
+        </label>
+        <label id="label2" style="position: absolute; left: 48px; top: 48px; width: 96px; height: 24px; font-size: 16px;">Ref No<input id="input_Ref_No" style="position: absolute; left: 56px; top: 0px; width: 96px; height: 24px;">
+        </label>
+        <label id="label4" style="position: absolute; left: 400px; top: 8px; width: 72px; height: 24px; font-size: 16px;">CIF No <edit id="edit_CIF_No" type="mask" autofocus="true" maxlength="6" displayMask="" style="position: absolute; left: 72px; top: 0px; width: 96px; height: 24px;"></edit>
+        </label>
+        <label id="label5" style="position: absolute; left: 400px; top: 48px; width: 72px; height: 24px; font-size: 16px;">TR Type<codecombo id="combo_Trans_Type" labelStyle="margin-left: 0px; display: none; width: 0px; height: 100%;" idField="Trans_Type" textField="Trans_Type" showHeader="" style="position: absolute; left: 72px; top: 0px; width: 96px; height: 24px;">
+                "columns":[{"field":"Trans_Type","title":"Trans_Type","sortable":true,"align":"center","width":40}],
+                "data":[{"Trans_Type":"01"},{"Trans_Type":"02"},{"Trans_Type":"03"}]
+            </codecombo>
+        </label>
+        <button id="button1" onclick="button1Click(event);" style="position: absolute; left: 872px; top: 8px; width: 80px; height: 24px; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">Inquiry</button>
+    </div>
+    <label id="label3" style="position: absolute; left: 248px; top: 40px; width: 24px; height: 24px; font-size: 16px;">~</label>
+    <div id="div2" style="position: absolute; left: 40px; top: 416px; width: 976px; height: 312px; background-color: rgb(230, 241, 245);">
+        <label id="label6" style="position: absolute; left: 64px; top: 24px; width: 88px; height: 24px;">Ref No<edit id="Ref_No" fldName="Ref No" type="mask" style="position: absolute; left: 96px; top: 0px; width: 96px; height: 24px; background-color: rgb(255, 255, 255);"></edit>
+        </label>
+        <label id="label7" style="position: absolute; left: 64px; top: 56px; width: 88px; height: 24px;">CIF No <edit id="CIF_No" type="mask" style="position: absolute; left: 96px; top: 0px; width: 96px; height: 24px; background-color: rgb(255, 255, 255);"></edit>
+        </label>
+        <label id="label8" style="position: absolute; left: 64px; top: 88px; width: 88px; height: 24px;">TR Type<codecombo id="Trans_Type" labelStyle="margin-left: 0px; display: none; width: 0px; height: 100%;" idField="Trans_Type" textField="Trans_Type" showHeader="" style="position: absolute; left: 96px; top: 0px; width: 104px; height: 24px;">
+                "columns":[{"field":"Trans_Type","title":"Trans_Type","sortable":true,"align":"center","width":40}],
+                "data":[{"TR":"01","Type":"A","Trans_Type":"01"},{"TR":"02","Type":"B","Trans_Type":"02"},{"TR":"03","Type":"C","Trans_Type":"03"}]
+            </codecombo>
+        </label>
+        <label id="label9" style="position: absolute; left: 64px; top: 120px; width: 88px; height: 24px;">From No<edit id="From_No" type="mask" style="position: absolute; left: 96px; top: 0px; width: 112px; height: 24px;"></edit>
+        </label>
+        <label id="label10" style="position: absolute; left: 64px; top: 152px; width: 88px; height: 24px;">To No <edit id="To_No" type="mask" style="position: absolute; left: 96px; top: 0px; width: 112px; height: 24px;"></edit>
+        </label>
+        <label id="label11" style="position: absolute; left: 64px; top: 184px; width: 88px; height: 24px;">Amount <edit id="Amount" type="currency" style="position: absolute; left: 96px; top: 0px; width: 112px; height: 24px;"></edit>
+        </label>
+        <label id="label12" style="position: absolute; left: 64px; top: 216px; width: 88px; height: 24px;">Open Date <dateedit id="Open_Date" style="position: absolute; left: 96px; top: 0px; width: 112px; height: 24px;"></dateedit>
+        </label>
+        <label id="label13" style="position: absolute; left: 64px; top: 248px; width: 88px; height: 24px;">Expire Date <dateedit id="Expire_Date" style="position: absolute; left: 96px; top: 0px; width: 112px; height: 24px;"></dateedit>
+        </label>
+    </div>
+    <label id="label14" style="position: absolute; left: 40px; top: 392px; width: 104px; height: 24px; background-color: rgb(255, 255, 255);">Information</label>
+</body>
+</html>
