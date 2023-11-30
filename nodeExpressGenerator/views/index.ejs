@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+
+    <ul>
+      <% data.forEach(user => { %>
+          <li>
+                  <strong>이름:</strong> <%= user.name %>,
+                  <strong> 나이: </strong><%= user.age %>,
+                  <strong>이메일: </strong> <%= user.email %>
+          </li>
+      <% }); %>
+  </ul>
+  </body>
+</html>

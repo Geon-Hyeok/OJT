@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html style="width: 1280px; height: 1024px;">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="/wai/wai.js"></script>
+    <link href="/wai/default.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div id="search" style="position: absolute; left: 64px; top: 160px; width: 1012px; height: 152px; border: 2px solid black;">
+        <label id="label1" style="position: absolute; left: 32px; top: 48px; width: 112px; height: 32px; font-size: 24px;">회원번호:</label>
+        <input id="input1" style="position: absolute; left: 148px; top: 48px; width: 200px; height: 32px;">
+        <label id="label3" style="position: absolute; left: 368px; top: 48px; width: 64px; height: 32px; font-size: 24px;">이름:</label>
+        <input id="input2" style="position: absolute; left: 436px; top: 48px; width: 200px; height: 32px;">
+        <label id="label2" style="position: absolute; left: 672px; top: 48px; width: 88px; height: 32px; font-size: 24px;">이메일:</label>
+        <button id="button1" style="position: absolute; left: 720px; top: 104px; width: 144px; height: 40px;">검색</button>
+        <input id="input3" style="position: absolute; left: 764px; top: 48px; width: 200px; height: 32px;">
+        <button id="button2" style="position: absolute; left: 868px; top: 104px; width: 96px; height: 40px;">삭제</button>
+        <codecombo id="codecombo1" labelStyle="margin-left: 0px; display: none; width: 0px; height: 100%;" idField="code" textField="title" style="position: absolute; left: 148px; top: 88px; width: 200px; height: 32px;">
+            "columns":[{"field":"code","title":"부서코드","sortable":true,"align":"center","width":118},{"field":"title","title":"부서명","sortable":true,"align":"center","width":118}],
+            "data":[]
+        </codecombo>
+        <label id="label8" style="position: absolute; left: 80px; top: 88px; width: 64px; height: 32px; font-size: 24px;">부서:</label>
+    </div>
+    <grid id="grid1" style="position: absolute; left: 72px; top: 352px; width: 1016px; height: 272px;">
+        "options" : {
+          "editable":false
+          ,"columnHeight":20
+          ,"cellHeight":20
+          ,"fixColumn":0
+          ,"contextmenu":true
+          ,"indicator":{"show":false,"width":30}
+          ,"selector":{"show":false,"width":20,"checked":"none","type":"check"}
+          ,"group":[]
+          ,"columns" : [
+            {"text":"회원번호","alignment":"center","width":100,"type":"column","height":20,"editable":"false","visible":"true","sortable":"true","sortType":"Integer","editor":{"type":"text","alignment":"left","equalBlank":""},"style":"","filter":"","metaId":"id","field":"id"}
+            ,{"text":"이름","alignment":"center","width":100,"type":"column","height":20,"editable":"false","visible":"true","sortable":"true","sortType":"string","editor":{"type":"text","alignment":"left","equalBlank":""},"style":"","filter":"","metaId":"name","field":"name"}
+            ,{"text":"나이","alignment":"center","width":100,"type":"column","height":20,"editable":"false","visible":"true","sortable":"true","sortType":"Integer","editor":{"type":"text","alignment":"left","equalBlank":""},"style":"","filter":"","metaId":"age","field":"age"}
+            ,{"text":"이메일","alignment":"center","width":100,"type":"column","height":20,"editable":"false","visible":"true","sortable":"true","sortType":"string","editor":{"type":"text","alignment":"left","equalBlank":""},"style":"","filter":"","metaId":"email","field":"email"}
+            ,{"text":"부서","alignment":"center","width":100,"type":"column","height":20,"editable":"false","visible":"true","sortable":"true","sortType":"string","editor":{"type":"text","alignment":"left","equalBlank":""},"style":"","filter":"","metaId":"title","field":"title"}
+          ]
+          ,"style":{}
+          ,"effect":{"columnHighlight":true}
+          ,"size":{"vertScrollWidth":19}
+          ,"footer":{"show":true,"height":24}
+          ,"conditionalstyle":[]
+        },
+        "data":[]
+    </grid>
+    <label id="label0" style="position: absolute; left: 408px; top: 64px; width: 400px; height: 80px; font-size: 50px;">User Information</label>
+    <div id="div1" style="position: absolute; left: 320px; top: 672px; width: 524px; height: 124px; border: 2px solid black;">
+        <label id="label4" style="position: absolute; left: 0px; top: 8px; width: 56px; height: 32px; font-size: 24px;">이름:</label>
+        <label id="label5" style="position: absolute; left: 264px; top: 8px; width: 56px; height: 32px; font-size: 24px;">나이:</label>
+        <label id="label6" style="position: absolute; left: 0px; top: 72px; width: 80px; height: 32px; font-size: 24px;">이메일:</label>
+        <input id="input4" style="position: absolute; left: 80px; top: 8px; width: 140px; height: 32px;">
+        <input id="input5" style="position: absolute; left: 344px; top: 8px; width: 140px; height: 32px;">
+        <input id="input6" style="position: absolute; left: 80px; top: 72px; width: 140px; height: 32px;">
+        <label id="label9" style="position: absolute; left: 264px; top: 72px; width: 56px; height: 32px; font-size: 24px;">부서:</label>
+        <codecombo id="codecombo2" labelStyle="margin-left: 0px; display: none; width: 0px; height: 100%;" idField="code" textField="title" style="position: absolute; left: 344px; top: 72px; width: 140px; height: 32px;">
+            "columns":[{"field":"code","title":"부서코드","sortable":true,"align":"center","width":118},{"field":"title","title":"부서명","sortable":true,"align":"center","width":118}],
+            "data":[]
+        </codecombo>
+    </div>
+    <button id="register" style="position: absolute; left: 496px; top: 808px; width: 144px; height: 40px;">등록</button>
+    <label id="label7" style="position: absolute; left: 200px; top: 704px; width: 112px; height: 32px; font-size: 25px;">회원 추가</label>
+</body>
+</html>

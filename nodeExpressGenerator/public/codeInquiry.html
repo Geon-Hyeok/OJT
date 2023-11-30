@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html style="width: 1280px; height: 1024px;">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="/wai/wai.js"></script>
+    <link href="/wai/default.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <label id="label11" style="position: absolute; left: 408px; top: 64px; width: 304px; height: 80px; font-size: 50px;">Code Inquiry</label>
+    <div id="div2" style="position: absolute; left: 64px; top: 160px; width: 1012px; height: 152px; border: 2px solid black;">
+        <label id="label12" style="position: absolute; left: 136px; top: 48px; width: 112px; height: 32px; font-size: 24px;">부서:</label>
+        <input id="input8" style="position: absolute; left: 248px; top: 48px; width: 200px; height: 32px;">
+        <label id="label13" style="position: absolute; left: 544px; top: 48px; width: 128px; height: 32px; font-size: 24px;">부서 설명:</label>
+        <input id="input9" style="position: absolute; left: 672px; top: 48px; width: 200px; height: 32px;">
+        <button id="button4" style="position: absolute; left: 832px; top: 104px; width: 144px; height: 40px;">검색</button>
+    </div>
+    <grid id="grid2" style="position: absolute; left: 64px; top: 344px; width: 1016px; height: 272px;">
+        "options" : {
+          "editable":false
+          ,"columnHeight":20
+          ,"cellHeight":20
+          ,"fixColumn":0
+          ,"aggregate":""
+          ,"appendmode":false
+          ,"autohiddencols":false
+          ,"autofit":false
+          ,"contextmenu":true
+          ,"indicator":{"show":false,"width":30}
+          ,"selector":{"show":false,"width":20,"checked":"none","type":"check"}
+          ,"group":[]
+          ,"columns" : [
+            {"text":"부서 코드","alignment":"center","width":100,"type":"column","height":20,"editable":"false","visible":"true","sortable":"true","sortType":"string","editor":{"type":"text","alignment":"left","equalBlank":""},"style":"","filter":"","metaId":"code","field":"code"}
+            ,{"text":"부서","alignment":"center","width":100,"type":"column","height":20,"editable":"false","visible":"true","sortable":"true","sortType":"string","editor":{"type":"text","alignment":"left","equalBlank":""},"style":"","filter":"","metaId":"title","field":"title"}
+            ,{"text":"부서 설명","alignment":"center","width":100,"type":"column","height":20,"editable":"false","visible":"true","sortable":"true","sortType":"string","editor":{"type":"text","alignment":"left","equalBlank":""},"style":"","filter":"","metaId":"desc","field":"desc"}
+          ]
+          ,"style":{}
+          ,"effect":{"columnHighlight":true}
+          ,"size":{"vertScrollWidth":19}
+          ,"footer":{"show":true,"height":24}
+          ,"conditionalstyle":[]
+        },
+        "data":[]
+    </grid>
+</body>
+</html>
