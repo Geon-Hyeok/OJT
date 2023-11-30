@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Information</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #fff;
+            margin: 10px;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        strong {
+            color: #555;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+        }
+
+        input, button {
+            margin-bottom: 10px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            cursor: pointer;
+            padding: 10px;
+        }
+        input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+
+        a button {
+            background-color: #f44336;
+        }
+        button[type="submit"] {
+        background-color: #008CBA;
+        color: #fff;
+    }
+
+    a button {
+        background-color: #f44336;
+        color: #fff;
+        text-decoration: none;
+        padding: 8px 15px;
+        border-radius: 3px;
+        margin-left: 10px;
+    }
+    </style>
+</head>
+<body>
+    <h1>회원정보</h1>
+    <div>
+        <ul>
+            <% data.forEach(user => { %>
+                <li>
+                    <a href="/userDetail/<%= user.id %>">
+                        <strong>이름:</strong> <%= user.name %></a>,
+                        <strong> 나이: </strong><%= user.age %>,
+                        <strong>이메일: </strong> <%= user.email %>
+                </li>
+            <% }); %>
+        </ul>
+    </div>
+    
+    <!-- Form for adding new user -->
+    <form action="/add" method="post">
+        <label for="name">이름:</label>
+        <input type="text" name="name" required>
+        <label for="age">나이:</label>
+        <input type="text" name="age" required>
+        <label for="email">이메일:</label>
+        <input type="text" name="email" required>
+        <button type="submit">추가</button>
+    </form>
+</body>
+</html>
