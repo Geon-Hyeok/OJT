@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html style="width: 1280px; height: 1024px;">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="/wai/wai.js"></script>
+    <link href="/wai/default.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <codecombo id="codecombo1" labelStyle="margin-left: 0px; display: none; width: 0px; height: 100%;" showHeader="" style="position: absolute; left: 64px; top: 48px; width: 120px; height: 24px;">
+        "columns":[{"field":"CODE","title":"CODE","sortable":true,"align":"center","width":80},{"field":"CODE_NM","title":"CODE_NM","sortable":true,"align":"center","width":80}],
+        "data":[{"CODE":"title","CODE_NM":"책 제목"},{"CODE":"person","CODE_NM":"저자"},{"CODE":"isbn","CODE_NM":"ISBN"},{"CODE":"publisher","CODE_NM":"출판사"}]
+    </codecombo>
+    <input id="input1" one="" style="position: absolute; left: 216px; top: 48px; width: 120px; height: 24px;">
+    <div id="div1" style="position: absolute; left: 56px; top: 85px; width: 1000px; height: 5px; background-color: rgb(173, 216, 230);"></div>
+    <grid id="grid1" style="position: absolute; left: 48px; top: 120px; width: 1008px; height: 632px;">
+        "options" : {
+          "editable":false
+          ,"columnHeight":70
+          ,"cellHeight":170
+          ,"fixColumn":0
+          ,"aggregate":""
+          ,"appendmode":false
+          ,"autohiddencols":false
+          ,"autofit":true
+          ,"contextmenu":true
+          ,"indicator":{"show":false,"width":30}
+          ,"selector":{"show":false,"width":20,"checked":"none","type":"check"}
+          ,"group":[]
+          ,"columns" : [
+            {"text":"썸네일"
+              ,"alignment":"center"
+              ,"width":100
+              ,"type":"column"
+              ,"height":70
+              ,"editable":"false"
+              ,"visible":"true"
+              ,"sortType":"string"
+              ,"style":""
+              ,"metaId":"thumbnail"
+              ,"field":"thumbnail"
+              ,"filter":""
+              ,"sortable":"true"
+              ,"editor":{"type":"image","equalBlank":"","colimgsize":"entersize","alignment":"center","imgmode":"stretch"}
+            }
+            ,{"text":"제목","alignment":"center","width":125,"type":"column","height":70,"editable":"false","visible":"true","sortType":"string","editor":{"type":"text","alignment":"left","equalBlank":""},"style":"","filter":"","metaId":"title","field":"title","sortable":true}
+            ,{"text":"소개","alignment":"center","width":125,"type":"column","height":70,"editable":"false","visible":"true","sortable":"true","sortType":"string","editor":{"type":"text","alignment":"left","equalBlank":""},"style":"","filter":"","metaId":"contents","field":"contents"}
+            ,{"text":"저자","alignment":"center","width":125,"type":"column","height":70,"editable":"false","visible":"true","sortable":"true","sortType":"string","editor":{"type":"text","alignment":"left","equalBlank":""},"style":"","filter":"","metaId":"authors","field":"authors"}
+            ,{"text":"출판사","alignment":"center","width":125,"type":"column","height":70,"editable":"false","visible":"true","sortable":"true","sortType":"string","editor":{"type":"text","alignment":"left","equalBlank":""},"style":"","filter":"","metaId":"publisher","field":"publisher"}
+            ,{"text":"판매가","alignment":"center","width":125,"type":"column","height":70,"editable":"false","visible":"true","sortable":"true","sortType":"Integer","editor":{"type":"text","equalBlank":"","alignment":"right"},"style":"","filter":"","metaId":"sale_price","field":"sale_price"}
+          ]
+          ,"style" : {
+            "BooksStyle" : {
+              "header":{"color":["#f9fbfd","#dbecfb","#d5e5f3"],"font":{"style":"normal","variant":"normal","weight":"bold","size":"12","lineHeight":"normal","family":"Tahoma","color":"black","text":"bold 12px Tahoma"}}
+              ,"cell":{"color":"#ffffff","font":{"style":"normal","variant":"normal","weight":"normal","size":"11","lineHeight":"normal","family":"Tahoma","color":"black","text":"normal 11px Tahoma"}}
+            }
+          }
+          ,"effect":{"columnHighlight":true}
+          ,"size":{"vertScrollWidth":19}
+          ,"footer":{"show":true,"height":24}
+          ,"conditionalstyle":[]
+        },
+        "data":[]
+    </grid>
+    <button id="searchButton" onclick="click" style="position: absolute; left: 952px; top: 48px; width: 104px; height: 24px;">SEARCH</button>
+</body>
+</html>

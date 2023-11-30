@@ -1,0 +1,1707 @@
+<!DOCTYPE html>
+<html style="width: 1280px; height: 1024px;">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="/wai/wai.js"></script>
+    <link href="/wai/default.css" rel="stylesheet" type="text/css">
+    <style>
+      ul {
+        list-style:none;
+        padding-left:0px;
+        text-align: center;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-right: 0;
+      }
+      ul li {
+        text-align: center;
+        float: left;
+      }
+      ul li a {
+        display: block;
+        font-size: 14px;
+        padding: 9px 12px;
+        border-right: solid 1px #ccc;
+        box-sizing: border-box;
+      }
+      ul li.on {
+        background: #eda712;
+      }
+  
+      ul li.on a {
+        color: #fff;
+      }
+    </style>
+    <script>
+      function setPaging() {
+          grid1.setPaging(true,10);
+          //페이징 표시 호출
+          paging(grid1, 1);
+      }
+      function onPageChanging(event){
+        var grid = event.args["grid"];
+        var curPage = event.args["curPage"];
+        console.log("old" ,curPage);
+      }
+      function onPageChanged(event){
+        var grid = event.args["grid"];
+        var curPage = event.args["curPage"];
+        console.log("new" ,curPage);
+      }
+    </script>
+</head>
+<body>
+    <grid id="grid1" onpagechanging="onPageChanging(event)" onpagechanged="paging( grid , currentPage )" style="width: 1160px; height: 660px; border: 1px solid rgb(234, 234, 234); left: 8px; top: 36px;">
+        "options" : {
+          "editable":false
+          ,"columnHeight":20
+          ,"cellHeight":20
+          ,"fixColumn":0
+          ,"aggregate":""
+          ,"appendmode":false
+          ,"autohiddencols":false
+          ,"autofit":false
+          ,"contextmenu":true
+          ,"indicator":{"show":false,"width":30}
+          ,"selector":{"show":false,"width":20,"checked":"none","type":"check"}
+          ,"group":[]
+          ,"columns" : [
+            {"text":"Movie code","alignment":"center","width":100,"field":"movieCd","tooltip":false,"editor":{"type":"text","alignment":"center"},"type":"column","height":20,"editable":false,"visible":true,"sortable":true}
+            ,{"text":"Movie Title","alignment":"center","width":200,"field":"movieNm","tooltip":false,"editor":{"type":"text","alignment":"left"},"type":"column","height":20,"editable":false,"visible":true,"sortable":true}
+            ,{"text":"Movie Title(English)","alignment":"center","width":200,"field":"movieNmEn","tooltip":false,"editor":{"type":"text","alignment":"left"},"type":"column","height":20,"editable":false,"visible":true,"sortable":true}
+            ,{"text":"Year of production","alignment":"center","width":80,"field":"prdtYear","style":"","tooltip":false,"editor":{"type":"text","alignment":"center"},"type":"column","height":20,"editable":false,"visible":true,"sortable":true}
+            ,{"text":"Open year","alignment":"center","width":80,"field":"openDt","style":"","tooltip":false,"editor":{"type":"date","alignment":"center","dtOrder":"yyyymmdd","dtSeparator":"/"},"type":"column","height":20,"editable":false,"visible":true,"sortable":true}
+            ,{"text":"Movie type","alignment":"center","width":100,"field":"typeNm","style":"","tooltip":false,"editor":{"type":"text","alignment":"center"},"type":"column","height":20,"editable":false,"visible":true,"sortable":true}
+            ,{"text":"Production Status","alignment":"center","width":100,"field":"prdtStatNm","style":"","tooltip":false,"editor":{"type":"text","alignment":"center"},"type":"column","height":20,"editable":false,"visible":true,"sortable":true}
+            ,{"text":"Production Country","alignment":"center","width":87,"field":"nationAlt","style":"","tooltip":false,"editor":{"type":"text","alignment":"center"},"type":"column","height":20,"editable":false,"visible":true,"sortable":true}
+            ,{"text":"Movie genre","alignment":"center","width":100,"field":"genreAlt","style":"","tooltip":false,"editor":{"type":"text","alignment":"center"},"type":"column","height":20,"editable":false,"visible":true,"sortable":true}
+            ,{"text":"nationImg","alignment":"center","width":100,"type":"column","height":20,"editable":"false","visible":"true","sortable":"true","sortType":"string","editor":{"type":"text","alignment":"left","equalBlank":""},"style":"","filter":""}
+          ]
+          ,"style":{}
+          ,"effect":{"columnHighlight":true}
+          ,"size":{"vertScrollWidth":19}
+          ,"footer":{"show":true,"height":24}
+          ,"conditionalstyle":[{"field":"prdtYear","conditional":"value == 2015","color":"rgba(0, 250, 0, 0.5)","range":"cell"},{"field":"genreAlt","conditional":"value.indexOf('스릴러') > -1","color":"rgba(250, 250, 0, 0.5)","range":"cell"}]
+        },
+        "data" : [
+          {"movieCd":"111111111111111"
+            ,"movieNm":"페이징"
+            ,"movieNmEn":"Trick"
+            ,"prdtYear":"2014"
+            ,"openDt":"20160713"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"스릴러,드라마"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"스릴러"
+            ,"img":""
+            ,"directors":[{"peopleNm":"이창열"}]
+            ,"companys":[{"companyCd":"20160481","companyNm":"엘씨오픽쳐스"}]
+          }
+          ,{"movieCd":"20161722"
+            ,"movieNm":"히야"
+            ,"movieNmEn":"HIYA"
+            ,"prdtYear":"2015"
+            ,"openDt":"20160310"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"드라마"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"드라마"
+            ,"img":""
+            ,"directors":[{"peopleNm":"김지연"}]
+            ,"companys":[{"companyCd":"20168888","companyNm":"(주)메이저타운"},{"companyCd":"20169148","companyNm":"(주)더재미팩토리"},{"companyCd":"20100392","companyNm":"(주)알지엔터웍스"}]
+          }
+          ,{"movieCd":"20152746"
+            ,"movieNm":"커터"
+            ,"movieNmEn":"Eclipse"
+            ,"prdtYear":"2016"
+            ,"openDt":"20160330"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"범죄,드라마"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"범죄"
+            ,"img":""
+            ,"directors":[{"peopleNm":"정희성"}]
+            ,"companys":[{"companyCd":"20169308","companyNm":"(주)엘픽쳐스"}]
+          }
+          ,{"movieCd":"20154910"
+            ,"movieNm":"터널"
+            ,"movieNmEn":"Tunnel"
+            ,"prdtYear":"2016"
+            ,"openDt":"20160810"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"드라마"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"드라마"
+            ,"img":""
+            ,"directors":[{"peopleNm":"김성훈"}]
+            ,"companys":[{"companyCd":"20100386","companyNm":"(주)어나더썬데이"},{"companyCd":"20138935","companyNm":"(주)비에이엔터테인먼트"}]
+          }
+          ,{"movieCd":"20144444"
+            ,"movieNm":"아가씨"
+            ,"movieNmEn":"The Handmaiden"
+            ,"prdtYear":"2016"
+            ,"openDt":"20160601"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"스릴러,드라마"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"스릴러"
+            ,"img":""
+            ,"directors":[{"peopleNm":"박찬욱"}]
+            ,"companys":[{"companyCd":"20153848","companyNm":"유한회사 아가씨에프에스"},{"companyCd":"20100357","companyNm":"(주)모호필름"},{"companyCd":"20137896","companyNm":"(주)용필름"}]
+          }
+          ,{"movieCd":"20158482"
+            ,"movieNm":"동주"
+            ,"movieNmEn":"DONGJU; The Portrait of A Poet"
+            ,"prdtYear":"2015"
+            ,"openDt":"20160217"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"드라마"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"드라마"
+            ,"img":""
+            ,"directors":[{"peopleNm":"이준익"}]
+            ,"companys":[{"companyCd":"20101097","companyNm":"(주) 루스이소니도스"}]
+          }
+          ,{"movieCd":"20150979"
+            ,"movieNm":"덕혜옹주"
+            ,"movieNmEn":"The Last Princess"
+            ,"prdtYear":"2016"
+            ,"openDt":"20160803"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"사극,드라마"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"사극"
+            ,"img":""
+            ,"directors":[{"peopleNm":"허진호"}]
+            ,"companys":[{"companyCd":"2016841","companyNm":"(주)하이브미디어코프"},{"companyCd":"20040117","companyNm":"(주)영화사호필름 "},{"companyCd":"20100807","companyNm":"(주)디씨지플러스"}]
+          }
+          ,{"movieCd":"20140194"
+            ,"movieNm":"곡성"
+            ,"movieNmEn":"THE WAILING"
+            ,"prdtYear":"2016"
+            ,"openDt":"20160512"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"미스터리,스릴러,드라마"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"미스터리"
+            ,"img":""
+            ,"directors":[{"peopleNm":"나홍진"}]
+            ,"companys":[{"companyCd":"20169368","companyNm":"사이드미러"},{"companyCd":"20124236","companyNm":"이십세기폭스 인터내셔널 프로덕션"}]
+          }
+          ,{"movieCd":"20169730"
+            ,"movieNm":"당신자신과 당신의 것"
+            ,"movieNmEn":"Yourself and Yours"
+            ,"prdtYear":"2016"
+            ,"openDt":"20161110"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"드라마"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"드라마"
+            ,"img":""
+            ,"directors":[{"peopleNm":"홍상수"}]
+            ,"companys":[{"companyCd":"20100332","companyNm":"(주)영화제작전원사 "}]
+          }
+          ,{"movieCd":"20159646"
+            ,"movieNm":"밀정"
+            ,"movieNmEn":"The Age of Shadows"
+            ,"prdtYear":"2016"
+            ,"openDt":"20160907"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"액션"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"액션"
+            ,"img":""
+            ,"directors":[{"peopleNm":"김지운"}]
+            ,"companys":[{"companyCd":"20101663","companyNm":"영화사그림"},{"companyCd":"20100043","companyNm":"워너브러더스 코리아(주)"},{"companyCd":"20155988","companyNm":"(주)영화사하얼빈"}]
+          }
+          ,{"movieCd":"20153443"
+            ,"movieNm":"아수라"
+            ,"movieNmEn":"Asura : The City of Madness"
+            ,"prdtYear":"2016"
+            ,"openDt":"20160928"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"범죄,액션"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"범죄"
+            ,"img":""
+            ,"directors":[{"peopleNm":"김성수"}]
+            ,"companys":[{"companyCd":"20122737","companyNm":"(주)사나이픽처스"}]
+          }
+          ,{"movieCd":"20150901"
+            ,"movieNm":"올레"
+            ,"movieNmEn":"DETOUR"
+            ,"prdtYear":"2016"
+            ,"openDt":"20160825"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"드라마,코미디"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"드라마"
+            ,"img":""
+            ,"directors":[{"peopleNm":"채두병"}]
+            ,"companys":[{"companyCd":"20140742","companyNm":"(주)어바웃필름"}]
+          }
+          ,{"movieCd":"20145502"
+            ,"movieNm":"남과 여"
+            ,"movieNmEn":"A Man and A Woman"
+            ,"prdtYear":"2015"
+            ,"openDt":"20160225"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"멜로/로맨스"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"멜로/로맨스"
+            ,"img":""
+            ,"directors":[{"peopleNm":"이윤기"}]
+            ,"companys":[{"companyCd":"20100068","companyNm":"(주)영화사봄"}]
+          }
+          ,{"movieCd":"20165723"
+            ,"movieNm":"메이킹 패밀리"
+            ,"movieNmEn":"Making Family"
+            ,"prdtYear":"2016"
+            ,"openDt":"20161128"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국,중국"
+            ,"genreAlt":"멜로/로맨스,드라마"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"멜로/로맨스"
+            ,"img":""
+            ,"directors":[{"peopleNm":"조진모"}]
+            ,"companys":[{"companyCd":"20139255","companyNm":"주식회사 한맥문화"}]
+          }
+          ,{"movieCd":"20140704"
+            ,"movieNm":"비밀은 없다"
+            ,"movieNmEn":"The Truth Beneath"
+            ,"prdtYear":"2015"
+            ,"openDt":"20160623"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"스릴러"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"스릴러"
+            ,"img":""
+            ,"directors":[{"peopleNm":"이경미"}]
+            ,"companys":[{"companyCd":"20123840","companyNm":"(주)영화사거미"},{"companyCd":"20101146","companyNm":"필름트레인"}]
+          }
+          ,{"movieCd":"20142406"
+            ,"movieNm":"탐정 홍길동: 사라진 마을"
+            ,"movieNmEn":"The Phantom Detective "
+            ,"prdtYear":"2016"
+            ,"openDt":"20160504"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"드라마,액션"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"드라마"
+            ,"img":""
+            ,"directors":[{"peopleNm":"조성희"}]
+            ,"companys":[{"companyCd":"20100362","companyNm":"(주)영화사비단길"}]
+          }
+          ,{"movieCd":"20164527"
+            ,"movieNm":"부릉! 부릉! 브루미즈: 스피더의 모험 일기"
+            ,"movieNmEn":"Vroom! Vroom! Vroomiz"
+            ,"prdtYear":"2016"
+            ,"openDt":"20161215"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"애니메이션"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"애니메이션"
+            ,"img":""
+            ,"directors":[{"peopleNm":"이영준"}]
+            ,"companys":[{"companyCd":"20000384","companyNm":"(주)삼지애니메이션"}]
+          }
+          ,{"movieCd":"20161694"
+            ,"movieNm":"제자 옥한흠 2 - 제자도"
+            ,"movieNmEn":""
+            ,"prdtYear":"2016"
+            ,"openDt":"20161110"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"다큐멘터리"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"다큐멘터리"
+            ,"img":""
+            ,"directors":[{"peopleNm":"김상철"}]
+            ,"companys":[{"companyCd":"20063240","companyNm":"파이오니아21"}]
+          }
+          ,{"movieCd":"20162206"
+            ,"movieNm":"브루클린"
+            ,"movieNmEn":"Brooklyn"
+            ,"prdtYear":"2016"
+            ,"openDt":"20160421"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/America.png"
+            ,"nationAlt":"미국"
+            ,"genreAlt":"드라마,멜로/로맨스"
+            ,"repNationNm":"미국"
+            ,"repGenreNm":"드라마"
+            ,"img":""
+            ,"directors":[{"peopleNm":"존 크로울리"}]
+            ,"companys":[]
+          }
+          ,{"movieCd":"20165521"
+            ,"movieNm":"극장판 프리즘스톤 올스타 셀렉션"
+            ,"movieNmEn":""
+            ,"prdtYear":"2015"
+            ,"openDt":"20160707"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국,일본"
+            ,"genreAlt":"애니메이션,드라마,판타지"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"애니메이션"
+            ,"img":""
+            ,"directors":[{"peopleNm":"김영범"}]
+            ,"companys":[{"companyCd":"20100185","companyNm":"동우에이앤이(주)"}]
+          }
+          ,{"movieCd":"20155321"
+            ,"movieNm":"최악의 하루"
+            ,"movieNmEn":"Worst Woman"
+            ,"prdtYear":"2016"
+            ,"openDt":"20160825"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"멜로/로맨스"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"멜로/로맨스"
+            ,"img":""
+            ,"directors":[{"peopleNm":"김종관"}]
+            ,"companys":[{"companyCd":"20100036","companyNm":"㈜인디스토리"}]
+          }
+          ,{"movieCd":"20161961"
+            ,"movieNm":"나는 증인이다"
+            ,"movieNmEn":"The Witness"
+            ,"prdtYear":"2015"
+            ,"openDt":"20160914"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국,중국"
+            ,"genreAlt":"미스터리,스릴러"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"미스터리"
+            ,"img":""
+            ,"directors":[{"peopleNm":"안상훈"}]
+            ,"companys":[{"companyCd":"20062530","companyNm":"(주)문와쳐"}]
+          }
+          ,{"movieCd":"20154803"
+            ,"movieNm":"우리 연애의 이력"
+            ,"movieNmEn":"With or Without You"
+            ,"prdtYear":"2015"
+            ,"openDt":"20160629"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"멜로/로맨스"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"멜로/로맨스"
+            ,"img":""
+            ,"directors":[{"peopleNm":"조성은"}]
+            ,"companys":[{"companyCd":"20168629","companyNm":"(주)더블엔비컴퍼니"}]
+          }
+          ,{"movieCd":"20162546"
+            ,"movieNm":"워킹 스트리트"
+            ,"movieNmEn":"Walking Street"
+            ,"prdtYear":"2016"
+            ,"openDt":"20161117"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"드라마"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"드라마"
+            ,"img":""
+            ,"directors":[{"peopleNm":"이상우"}]
+            ,"companys":[{"companyCd":"20123997","companyNm":"(주)컨텐츠로드"}]
+          }
+          ,{"movieCd":"20145507"
+            ,"movieNm":"검사외전"
+            ,"movieNmEn":"A Violent Prosecutor"
+            ,"prdtYear":"2015"
+            ,"openDt":"20160203"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"범죄,코미디"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"범죄"
+            ,"img":""
+            ,"directors":[{"peopleNm":"이일형"}]
+            ,"companys":[{"companyCd":"20126515","companyNm":"(주)영화사 월광"},{"companyCd":"20122737","companyNm":"(주)사나이픽처스"}]
+          }
+          ,{"movieCd":"20163521"
+            ,"movieNm":"스플릿"
+            ,"movieNmEn":"SPLIT"
+            ,"prdtYear":"2016"
+            ,"openDt":"20161109"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"드라마"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"드라마"
+            ,"img":""
+            ,"directors":[{"peopleNm":"최국희"}]
+            ,"companys":[{"companyCd":"20100410","companyNm":"오퍼스픽쳐스"}]
+          }
+          ,{"movieCd":"20157466"
+            ,"movieNm":"로봇, 소리"
+            ,"movieNmEn":"SORI: Voice from the Heart"
+            ,"prdtYear":"2015"
+            ,"openDt":"20160127"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"드라마"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"드라마"
+            ,"img":""
+            ,"directors":[{"peopleNm":"이호재"}]
+            ,"companys":[{"companyCd":"20168548","companyNm":"(주)영화사 좋은날"},{"companyCd":"20100807","companyNm":"(주)디씨지플러스"}]
+          }
+          ,{"movieCd":"20142706"
+            ,"movieNm":"시소"
+            ,"movieNmEn":"SEE-SAW"
+            ,"prdtYear":"2016"
+            ,"openDt":"20161110"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"다큐멘터리"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"다큐멘터리"
+            ,"img":""
+            ,"directors":[{"peopleNm":"고희영"}]
+            ,"companys":[{"companyCd":"20139236","companyNm":"(주)에스엠 컬처앤콘텐츠"}]
+          }
+          ,{"movieCd":"20150968"
+            ,"movieNm":"국가대표 2"
+            ,"movieNmEn":"RUN OFF"
+            ,"prdtYear":"2016"
+            ,"openDt":"20160810"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"드라마"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"드라마"
+            ,"img":""
+            ,"directors":[{"peopleNm":"김종현"}]
+            ,"companys":[{"companyCd":"20100158","companyNm":"케이엠컬쳐㈜"}]
+          }
+          ,{"movieCd":"20153401"
+            ,"movieNm":"파파좀비"
+            ,"movieNmEn":"Papa Zombie"
+            ,"prdtYear":"2016"
+            ,"openDt":"20161229"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"드라마"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"드라마"
+            ,"img":""
+            ,"directors":[{"peopleNm":"고현창"}]
+            ,"companys":[{"companyCd":"20100036","companyNm":"㈜인디스토리"}]
+          }
+          ,{"movieCd":"20159643"
+            ,"movieNm":"글로리데이"
+            ,"movieNmEn":"One Way Trip"
+            ,"prdtYear":"2015"
+            ,"openDt":"20160324"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"드라마"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"드라마"
+            ,"img":""
+            ,"directors":[{"peopleNm":"최정열"}]
+            ,"companys":[{"companyCd":"20101564","companyNm":"(주)보리픽쳐스"}]
+          }
+          ,{"movieCd":"20161806"
+            ,"movieNm":"비치온더비치"
+            ,"movieNmEn":"Bitch On the Beach"
+            ,"prdtYear":"2016"
+            ,"openDt":"20161208"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"멜로/로맨스"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"멜로/로맨스"
+            ,"img":""
+            ,"directors":[{"peopleNm":"정가영"}]
+            ,"companys":[{"companyCd":"20162161","companyNm":"비치사"}]
+          }
+          ,{"movieCd":"20159648"
+            ,"movieNm":"고산자, 대동여지도"
+            ,"movieNmEn":"The Map Against the World"
+            ,"prdtYear":"2016"
+            ,"openDt":"20160907"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"사극"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"사극"
+            ,"img":""
+            ,"directors":[{"peopleNm":"강우석"}]
+            ,"companys":[{"companyCd":"20100303","companyNm":"(주)시네마서비스"}]
+          }
+          ,{"movieCd":"20163098"
+            ,"movieNm":"카이: 거울 호수의 전설"
+            ,"movieNmEn":"Kai"
+            ,"prdtYear":"2016"
+            ,"openDt":"20160817"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"애니메이션"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"애니메이션"
+            ,"img":""
+            ,"directors":[{"peopleNm":"이성강"}]
+            ,"companys":[{"companyCd":"20111552","companyNm":"주식회사 다다쇼"},{"companyCd":"20140808","companyNm":"(주)영화사레드피터"}]
+          }
+          ,{"movieCd":"20154906"
+            ,"movieNm":"사냥"
+            ,"movieNmEn":"The Hunt"
+            ,"prdtYear":"2016"
+            ,"openDt":"20160629"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"액션"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"액션"
+            ,"img":""
+            ,"directors":[{"peopleNm":"이우철"}]
+            ,"companys":[{"companyCd":"20123063","companyNm":"(주)빅스톤픽쳐스"}]
+          }
+          ,{"movieCd":"20158242"
+            ,"movieNm":"무서운 이야기 3 : 화성에서 온 소녀"
+            ,"movieNmEn":"Horror Stories III"
+            ,"prdtYear":"2016"
+            ,"openDt":"20160601"
+            ,"typeNm":"옴니버스"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"공포(호러)"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"공포(호러)"
+            ,"img":""
+            ,"directors":[{"peopleNm":"백승빈"},{"peopleNm":"김선"},{"peopleNm":"김곡"},{"peopleNm":"민규동"}]
+            ,"companys":[{"companyCd":"20100340","companyNm":"(주)수필름"}]
+          }
+          ,{"movieCd":"20150902"
+            ,"movieNm":"대배우"
+            ,"movieNmEn":"THE GREAT ACTOR"
+            ,"prdtYear":"2015"
+            ,"openDt":"20160330"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"코미디"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"코미디"
+            ,"img":""
+            ,"directors":[{"peopleNm":"석민우"}]
+            ,"companys":[{"companyCd":"20168769","companyNm":"주식회사 영화사다"}]
+          }
+          ,{"movieCd":"20166127"
+            ,"movieNm":"그랜드파더"
+            ,"movieNmEn":"Grand Father"
+            ,"prdtYear":"2016"
+            ,"openDt":"20160831"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"액션,드라마"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"액션"
+            ,"img":""
+            ,"directors":[{"peopleNm":"이서"}]
+            ,"companys":[{"companyCd":"20139537","companyNm":"(주)한이야기"}]
+          }
+          ,{"movieCd":"20162608"
+            ,"movieNm":"나의 살던 고향은"
+            ,"movieNmEn":"GOGURYEO"
+            ,"prdtYear":"2016"
+            ,"openDt":"20161124"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"다큐멘터리"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"다큐멘터리"
+            ,"img":""
+            ,"directors":[{"peopleNm":"류종헌"}]
+            ,"companys":[{"companyCd":"20162001","companyNm":"후즈닷컴"}]
+          }
+          ,{"movieCd":"20150972"
+            ,"movieNm":"굿바이 싱글"
+            ,"movieNmEn":"Familyhood"
+            ,"prdtYear":"2016"
+            ,"openDt":"20160629"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"코미디,드라마"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"코미디"
+            ,"img":""
+            ,"directors":[{"peopleNm":"김태곤"}]
+            ,"companys":[{"companyCd":"20155529","companyNm":"호두앤유 엔터테인먼트(주)"},{"companyCd":"20157468","companyNm":"(주)영화사람"}]
+          }
+          ,{"movieCd":"20152370"
+            ,"movieNm":"잡아야 산다"
+            ,"movieNmEn":"Chasing "
+            ,"prdtYear":"2015"
+            ,"openDt":"20160107"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"코미디,액션"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"코미디"
+            ,"img":""
+            ,"directors":[{"peopleNm":"오인천"}]
+            ,"companys":[{"companyCd":"20157390","companyNm":"더퀸디앤엠 주식회사"}]
+          }
+          ,{"movieCd":"20156559"
+            ,"movieNm":"계춘할망"
+            ,"movieNmEn":"Canola"
+            ,"prdtYear":"2016"
+            ,"openDt":"20160519"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"가족,드라마"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"가족"
+            ,"img":""
+            ,"directors":[{"peopleNm":"창"}]
+            ,"companys":[{"companyCd":"20100004","companyNm":"지오엔터테인먼트"},{"companyCd":"20063066","companyNm":"(주)퍼플켓츠필름"},{"companyCd":"20154814","companyNm":"(주)빅스토리픽쳐스"}]
+          }
+          ,{"movieCd":"20161725"
+            ,"movieNm":"마스터"
+            ,"movieNmEn":"Master"
+            ,"prdtYear":"2016"
+            ,"openDt":"20161221"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"액션,범죄"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"액션"
+            ,"img":""
+            ,"directors":[{"peopleNm":"조의석"}]
+            ,"companys":[{"companyCd":"20100450","companyNm":"영화사 집"}]
+          }
+          ,{"movieCd":"20158821"
+            ,"movieNm":"삼례"
+            ,"movieNmEn":"Night Song"
+            ,"prdtYear":"2015"
+            ,"openDt":"20160623"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"드라마,판타지"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"드라마"
+            ,"img":""
+            ,"directors":[{"peopleNm":"이현정"}]
+            ,"companys":[{"companyCd":"20160461","companyNm":"리람"}]
+          }
+          ,{"movieCd":"20157064"
+            ,"movieNm":"커튼콜"
+            ,"movieNmEn":"Curtain Call"
+            ,"prdtYear":"2016"
+            ,"openDt":"20161208"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"코미디"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"코미디"
+            ,"img":""
+            ,"directors":[{"peopleNm":"류훈"}]
+            ,"companys":[{"companyCd":"20158008","companyNm":"(주)모멘텀엔터테인먼트"}]
+          }
+          ,{"movieCd":"20141589"
+            ,"movieNm":"철원기행"
+            ,"movieNmEn":"End of Winter"
+            ,"prdtYear":"2014"
+            ,"openDt":"20160421"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"드라마"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"드라마"
+            ,"img":""
+            ,"directors":[{"peopleNm":"김대환"}]
+            ,"companys":[{"companyCd":"20125955","companyNm":"(주)타이거시네마"},{"companyCd":"20158092","companyNm":"DGC"}]
+          }
+          ,{"movieCd":"20161364"
+            ,"movieNm":"귀향"
+            ,"movieNmEn":"Spirits' Homecoming"
+            ,"prdtYear":"2015"
+            ,"openDt":"20160224"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"드라마"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"드라마"
+            ,"img":""
+            ,"directors":[{"peopleNm":"조정래"}]
+            ,"companys":[{"companyCd":"20123223","companyNm":"제이오엔터테인먼트"}]
+          }
+          ,{"movieCd":"20156564"
+            ,"movieNm":"부산행"
+            ,"movieNmEn":"TRAIN TO BUSAN"
+            ,"prdtYear":"2016"
+            ,"openDt":"20160720"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"액션,스릴러"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"액션"
+            ,"img":""
+            ,"directors":[{"peopleNm":"연상호"}]
+            ,"companys":[{"companyCd":"20140808","companyNm":"(주)영화사레드피터"}]
+          }
+          ,{"movieCd":"20153741"
+            ,"movieNm":"미씽: 사라진 여자"
+            ,"movieNmEn":"MISSING"
+            ,"prdtYear":"2015"
+            ,"openDt":"20161130"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"미스터리"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"미스터리"
+            ,"img":""
+            ,"directors":[{"peopleNm":"이언희"}]
+            ,"companys":[{"companyCd":"20139535","companyNm":"다이스필름(주)"}]
+          }
+          ,{"movieCd":"20160142"
+            ,"movieNm":"내 친구의 엄마"
+            ,"movieNmEn":""
+            ,"prdtYear":"2016"
+            ,"openDt":"20161012"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"멜로/로맨스,드라마"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"멜로/로맨스"
+            ,"img":""
+            ,"directors":[{"peopleNm":"탁승오"}]
+            ,"companys":[{"companyCd":"20172381","companyNm":"엠아이픽쳐스"}]
+          }
+          ,{"movieCd":"20159657"
+            ,"movieNm":"최강전사 미니특공대: 영웅의 탄생"
+            ,"movieNmEn":"Mini Force : New Heroes Rise"
+            ,"prdtYear":"2016"
+            ,"openDt":"20160204"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"애니메이션"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"애니메이션"
+            ,"img":""
+            ,"directors":[{"peopleNm":"이영준"}]
+            ,"companys":[{"companyCd":"20000384","companyNm":"(주)삼지애니메이션"}]
+          }
+          ,{"movieCd":"20165281"
+            ,"movieNm":"마이 리틀 자이언트"
+            ,"movieNmEn":"The BFG"
+            ,"prdtYear":"2015"
+            ,"openDt":"20160810"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/America.png"
+            ,"nationAlt":"미국"
+            ,"genreAlt":"어드벤처,가족,판타지"
+            ,"repNationNm":"미국"
+            ,"repGenreNm":"어드벤처"
+            ,"img":""
+            ,"directors":[{"peopleNm":"스티븐 스필버그"}]
+            ,"companys":[]
+          }
+          ,{"movieCd":"20163824"
+            ,"movieNm":"미스 사이공 : 25주년 특별 공연"
+            ,"movieNmEn":"Miss Saigon : 25th Anniversary Performance "
+            ,"prdtYear":"2016"
+            ,"openDt":"20161124"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/America.png"
+            ,"nationAlt":"미국"
+            ,"genreAlt":"공연"
+            ,"repNationNm":"미국"
+            ,"repGenreNm":"공연"
+            ,"img":""
+            ,"directors":[{"peopleNm":"브렛 설리반"}]
+            ,"companys":[]
+          }
+          ,{"movieCd":"20167102"
+            ,"movieNm":"휴가"
+            ,"movieNmEn":"A WAY BACK TO MOTHER"
+            ,"prdtYear":"2016"
+            ,"openDt":"20161208"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"가족,드라마"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"가족"
+            ,"img":""
+            ,"directors":[{"peopleNm":"이수성"}]
+            ,"companys":[{"companyCd":"20063187","companyNm":"㈜리필름"}]
+          }
+          ,{"movieCd":"20151944"
+            ,"movieNm":"스톱"
+            ,"movieNmEn":"Stop"
+            ,"prdtYear":"2015"
+            ,"openDt":"20161208"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"드라마"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"드라마"
+            ,"img":""
+            ,"directors":[{"peopleNm":"김기덕"}]
+            ,"companys":[{"companyCd":"20100078","companyNm":"(주)김기덕 필름"}]
+          }
+          ,{"movieCd":"20166821"
+            ,"movieNm":"나쁜놈은 죽는다 무삭제 특별판"
+            ,"movieNmEn":""
+            ,"prdtYear":"2015"
+            ,"openDt":"20160721"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/China.png"
+            ,"nationAlt":"중국,한국"
+            ,"genreAlt":"코미디,범죄,액션"
+            ,"repNationNm":"중국"
+            ,"repGenreNm":"코미디"
+            ,"img":""
+            ,"directors":[{"peopleNm":"손호"}]
+            ,"companys":[{"companyCd":"20063099","companyNm":"(주)케이알씨지"},{"companyCd":"20142369","companyNm":"(유)조이앤시네마"}]
+          }
+          ,{"movieCd":"20156080"
+            ,"movieNm":"나쁜놈은 죽는다"
+            ,"movieNmEn":"Bad Guys Always Die"
+            ,"prdtYear":"2015"
+            ,"openDt":"20160204"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/China.png"
+            ,"nationAlt":"중국,한국"
+            ,"genreAlt":"코미디,액션"
+            ,"repNationNm":"중국"
+            ,"repGenreNm":"코미디"
+            ,"img":""
+            ,"directors":[{"peopleNm":"손호"}]
+            ,"companys":[{"companyCd":"20063099","companyNm":"(주)케이알씨지"},{"companyCd":"20142369","companyNm":"(유)조이앤시네마"}]
+          }
+          ,{"movieCd":"20164855"
+            ,"movieNm":"사랑은 부엉부엉"
+            ,"movieNmEn":"OWL YOU NEED IS LOVE"
+            ,"prdtYear":"2016"
+            ,"openDt":"20161229"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/France.png"
+            ,"nationAlt":"프랑스"
+            ,"genreAlt":"드라마,코미디,멜로/로맨스"
+            ,"repNationNm":"프랑스"
+            ,"repGenreNm":"드라마"
+            ,"img":""
+            ,"directors":[{"peopleNm":"람지 베디아"}]
+            ,"companys":[]
+          }
+          ,{"movieCd":"20161701"
+            ,"movieNm":"위켄즈"
+            ,"movieNmEn":"WEEKENDS"
+            ,"prdtYear":"2016"
+            ,"openDt":"20161222"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"다큐멘터리"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"다큐멘터리"
+            ,"img":""
+            ,"directors":[{"peopleNm":"이동하"}]
+            ,"companys":[{"companyCd":"20062413","companyNm":"한국게이인권운동단체 친구사이"},{"companyCd":"20137935","companyNm":"반달"}]
+          }
+          ,{"movieCd":"20164362"
+            ,"movieNm":"엔티티: 죽음의 웹사이트"
+            ,"movieNmEn":"The Entity"
+            ,"prdtYear":"2015"
+            ,"openDt":"20161222"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Peru.png"
+            ,"nationAlt":"페루"
+            ,"genreAlt":"공포(호러),미스터리"
+            ,"repNationNm":"페루"
+            ,"repGenreNm":"공포(호러)"
+            ,"img":""
+            ,"directors":[{"peopleNm":"에두와르도 슐츠"}]
+            ,"companys":[]
+          }
+          ,{"movieCd":"20163196"
+            ,"movieNm":"줄리에타"
+            ,"movieNmEn":"Julieta"
+            ,"prdtYear":"2016"
+            ,"openDt":"20161117"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Spain.png"
+            ,"nationAlt":"스페인"
+            ,"genreAlt":"드라마"
+            ,"repNationNm":"스페인"
+            ,"repGenreNm":"드라마"
+            ,"img":""
+            ,"directors":[{"peopleNm":"페드로 알모도바르"}]
+            ,"companys":[]
+          }
+          ,{"movieCd":"20163011"
+            ,"movieNm":"우리 손자 베스트"
+            ,"movieNmEn":"Beaten Black and Blue"
+            ,"prdtYear":"2016"
+            ,"openDt":"20161208"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"코미디"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"코미디"
+            ,"img":""
+            ,"directors":[{"peopleNm":"김수현"}]
+            ,"companys":[{"companyCd":"20063002","companyNm":"(주)인디플러그"}]
+          }
+          ,{"movieCd":"20162207"
+            ,"movieNm":"도성풍운 3"
+            ,"movieNmEn":"From Vegas To Macau III"
+            ,"prdtYear":"2016"
+            ,"openDt":"20161130"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/HongKong.png"
+            ,"nationAlt":"홍콩"
+            ,"genreAlt":"코미디,드라마"
+            ,"repNationNm":"홍콩"
+            ,"repGenreNm":"코미디"
+            ,"img":""
+            ,"directors":[{"peopleNm":"왕정"}]
+            ,"companys":[]
+          }
+          ,{"movieCd":"20165231","movieNm":"펫","movieNmEn":"PET","prdtYear":"2016","openDt":"20161130","typeNm":"장편","prdtStatNm":"개봉","nationImg":"./css/images/America.png","nationAlt":"미국,스페인","genreAlt":"스릴러","repNationNm":"미국","repGenreNm":"스릴러","directors":[{"peopleNm":"카를레스 토렌스"}],"companys":[],"img":""}
+          ,{"movieCd":"20163411"
+            ,"movieNm":"서프러제트"
+            ,"movieNmEn":"Suffragette"
+            ,"prdtYear":"2016"
+            ,"openDt":"20160623"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/America.png"
+            ,"nationAlt":"미국"
+            ,"genreAlt":"드라마"
+            ,"repNationNm":"미국"
+            ,"repGenreNm":"드라마"
+            ,"img":""
+            ,"directors":[{"peopleNm":"사라 가브론"}]
+            ,"companys":[]
+          }
+          ,{"movieCd":"20163012"
+            ,"movieNm":"바이 더 씨"
+            ,"movieNmEn":"By the Sea"
+            ,"prdtYear":"2015"
+            ,"openDt":"20160428"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/America.png"
+            ,"nationAlt":"미국"
+            ,"genreAlt":"드라마,멜로/로맨스"
+            ,"repNationNm":"미국"
+            ,"repGenreNm":"드라마"
+            ,"img":""
+            ,"directors":[{"peopleNm":"안젤리나 졸리"}]
+            ,"companys":[]
+          }
+          ,{"movieCd":"20162766"
+            ,"movieNm":"프로모션 걸의 사생활"
+            ,"movieNmEn":"PG Love"
+            ,"prdtYear":"2015"
+            ,"openDt":"20161102"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/HongKong.png"
+            ,"nationAlt":"홍콩"
+            ,"genreAlt":"코미디"
+            ,"repNationNm":"홍콩"
+            ,"repGenreNm":"코미디"
+            ,"img":""
+            ,"directors":[{"peopleNm":"채결령"}]
+            ,"companys":[]
+          }
+          ,{"movieCd":"20142641"
+            ,"movieNm":"나를 잊지 말아요"
+            ,"movieNmEn":"Remember You"
+            ,"prdtYear":"2015"
+            ,"openDt":"20160107"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"멜로/로맨스"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"멜로/로맨스"
+            ,"img":""
+            ,"directors":[{"peopleNm":"이윤정"}]
+            ,"companys":[{"companyCd":"20157708","companyNm":"(주)더블유 팩토리"}]
+          }
+          ,{"movieCd":"20164105"
+            ,"movieNm":"외박: 친구의 여자 (무삭제)"
+            ,"movieNmEn":"SOLDIERS’ DESIRE: STAYING-OUT DAY"
+            ,"prdtYear":"2016"
+            ,"openDt":"20161110"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"멜로/로맨스,드라마"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"멜로/로맨스"
+            ,"img":""
+            ,"directors":[{"peopleNm":"유승택"}]
+            ,"companys":[{"companyCd":"20141397","companyNm":"영화사 인연"}]
+          }
+          ,{"movieCd":"20154661"
+            ,"movieNm":"형"
+            ,"movieNmEn":"MY ANNOYING BROTHER"
+            ,"prdtYear":"2016"
+            ,"openDt":"20161123"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"코미디,드라마"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"코미디"
+            ,"img":""
+            ,"directors":[{"peopleNm":"권수경"}]
+            ,"companys":[{"companyCd":"20063037","companyNm":"굿초이스컷픽쳐스(주)"}]
+          }
+          ,{"movieCd":"20167839"
+            ,"movieNm":"벤허"
+            ,"movieNmEn":"Ben-Hur"
+            ,"prdtYear":"2016"
+            ,"openDt":"20160914"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/America.png"
+            ,"nationAlt":"미국"
+            ,"genreAlt":"어드벤처,드라마"
+            ,"repNationNm":"미국"
+            ,"repGenreNm":"어드벤처"
+            ,"img":""
+            ,"directors":[{"peopleNm":"티무르 베크맘베토브"}]
+            ,"companys":[]
+          }
+          ,{"movieCd":"20165929","movieNm":"겟 어웨이","movieNmEn":"Terror Trap","prdtYear":"2015","openDt":"20161223","typeNm":"장편","prdtStatNm":"개봉","nationImg":"./css/images/America.png","nationAlt":"미국","genreAlt":"스릴러,공포(호러)","repNationNm":"미국","repGenreNm":"스릴러","directors":[],"companys":[],"img":""}
+          ,{"movieCd":"20165928"
+            ,"movieNm":"시티 오브 데드"
+            ,"movieNmEn":"Darkest day"
+            ,"prdtYear":"2015"
+            ,"openDt":"20161223"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/UnitedKingdom.png"
+            ,"nationAlt":"영국"
+            ,"genreAlt":"액션,어드벤처,공포(호러)"
+            ,"repNationNm":"영국"
+            ,"repGenreNm":"액션"
+            ,"img":""
+            ,"directors":[{"peopleNm":"덴 리카드"}]
+            ,"companys":[]
+          }
+          ,{"movieCd":"20138783"
+            ,"movieNm":"와와의 학교 가는 날"
+            ,"movieNmEn":"Walking To School"
+            ,"prdtYear":"2015"
+            ,"openDt":"20161027"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/China.png"
+            ,"nationAlt":"중국"
+            ,"genreAlt":"드라마"
+            ,"repNationNm":"중국"
+            ,"repGenreNm":"드라마"
+            ,"img":""
+            ,"directors":[{"peopleNm":"펑천"}]
+            ,"companys":[]
+          }
+          ,{"movieCd":"20167402"
+            ,"movieNm":"서클 오브 데블"
+            ,"movieNmEn":"The devil complex"
+            ,"prdtYear":"2016"
+            ,"openDt":"20161222"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/America.png"
+            ,"nationAlt":"미국"
+            ,"genreAlt":"공포(호러),스릴러"
+            ,"repNationNm":"미국"
+            ,"repGenreNm":"공포(호러)"
+            ,"img":""
+            ,"directors":[{"peopleNm":"마크 에반스"}]
+            ,"companys":[]
+          }
+          ,{"movieCd":"20167568"
+            ,"movieNm":"두 여자: 피의 복수"
+            ,"movieNmEn":"Even Lambs Have Teeth"
+            ,"prdtYear":"2015"
+            ,"openDt":"20161222"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/America.png"
+            ,"nationAlt":"미국"
+            ,"genreAlt":"스릴러"
+            ,"repNationNm":"미국"
+            ,"repGenreNm":"스릴러"
+            ,"img":""
+            ,"directors":[{"peopleNm":"테리 마일즈"}]
+            ,"companys":[]
+          }
+          ,{"movieCd":"20167283"
+            ,"movieNm":"데스타운 2"
+            ,"movieNmEn":"The Invoking 2"
+            ,"prdtYear":"2015"
+            ,"openDt":"20161222"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/America.png"
+            ,"nationAlt":"미국"
+            ,"genreAlt":"공포(호러)"
+            ,"repNationNm":"미국"
+            ,"repGenreNm":"공포(호러)"
+            ,"img":""
+            ,"directors":[{"peopleNm":"제이미 루트"}]
+            ,"companys":[]
+          }
+          ,{"movieCd":"20120111"
+            ,"movieNm":"기억의 소리"
+            ,"movieNmEn":"The Sound of Memories"
+            ,"prdtYear":"2016"
+            ,"openDt":"20161215"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"미스터리,판타지"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"미스터리"
+            ,"img":""
+            ,"directors":[{"peopleNm":"이공희"}]
+            ,"companys":[{"companyCd":"20172361","companyNm":"이공희 필름"}]
+          }
+          ,{"movieCd":"20153467"
+            ,"movieNm":"미스 히스테리"
+            ,"movieNmEn":"Meet Miss Anxiety"
+            ,"prdtYear":"2014"
+            ,"openDt":"20160404"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/China.png"
+            ,"nationAlt":"중국"
+            ,"genreAlt":"드라마,멜로/로맨스"
+            ,"repNationNm":"중국"
+            ,"repGenreNm":"드라마"
+            ,"img":""
+            ,"directors":[{"peopleNm":"곽재용"}]
+            ,"companys":[]
+          }
+          ,{"movieCd":"20158355"
+            ,"movieNm":"600 마일"
+            ,"movieNmEn":"600 Miles"
+            ,"prdtYear":"2015"
+            ,"openDt":"20161208"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Mexico.png"
+            ,"nationAlt":"멕시코,미국"
+            ,"genreAlt":"드라마,스릴러"
+            ,"repNationNm":"멕시코"
+            ,"repGenreNm":"드라마"
+            ,"img":""
+            ,"directors":[{"peopleNm":"가브리엘 립스테인"}]
+            ,"companys":[]
+          }
+          ,{"movieCd":"20166462"
+            ,"movieNm":"신밧드 더 무비"
+            ,"movieNmEn":"SINBAD"
+            ,"prdtYear":"2016"
+            ,"openDt":"20161201"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Japan.png"
+            ,"nationAlt":"일본"
+            ,"genreAlt":"애니메이션"
+            ,"repNationNm":"일본"
+            ,"repGenreNm":"애니메이션"
+            ,"img":""
+            ,"directors":[{"peopleNm":"미야시타 신페이"}]
+            ,"companys":[]
+          }
+          ,{"movieCd":"20163058"
+            ,"movieNm":"아브릴과 조작된 세계"
+            ,"movieNmEn":"April and the Extraordinary World"
+            ,"prdtYear":"2015"
+            ,"openDt":"20161215"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/France.png"
+            ,"nationAlt":"프랑스,벨기에,캐나다"
+            ,"genreAlt":"애니메이션,어드벤처,코미디"
+            ,"repNationNm":"프랑스"
+            ,"repGenreNm":"애니메이션"
+            ,"img":""
+            ,"directors":[{"peopleNm":"크리스티앙 데마르"},{"peopleNm":"프랑크 에킨시"}]
+            ,"companys":[]
+          }
+          ,{"movieCd":"20164526"
+            ,"movieNm":"나의 위대한 친구, 세잔"
+            ,"movieNmEn":"Cezanne et moi"
+            ,"prdtYear":"2016"
+            ,"openDt":"20161215"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/France.png"
+            ,"nationAlt":"프랑스"
+            ,"genreAlt":"드라마"
+            ,"repNationNm":"프랑스"
+            ,"repGenreNm":"드라마"
+            ,"img":""
+            ,"directors":[{"peopleNm":"다니엘르 톰슨"}]
+            ,"companys":[]
+          }
+          ,{"movieCd":"20162183"
+            ,"movieNm":"포켓몬 더 무비 XY&Z 「볼케니온 : 기계왕국의 비밀」"
+            ,"movieNmEn":""
+            ,"prdtYear":"2016"
+            ,"openDt":"20161222"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Japan.png"
+            ,"nationAlt":"일본"
+            ,"genreAlt":"애니메이션,어드벤처,판타지,가족"
+            ,"repNationNm":"일본"
+            ,"repGenreNm":"애니메이션"
+            ,"img":""
+            ,"directors":[{"peopleNm":"유야마 쿠니히코"}]
+            ,"companys":[]
+          }
+          ,{"movieCd":"20163183"
+            ,"movieNm":"로그 원: 스타워즈 스토리"
+            ,"movieNmEn":"ROGUE ONE: A STAR WARS STORY"
+            ,"prdtYear":"2016"
+            ,"openDt":"20161228"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/America.png"
+            ,"nationAlt":"미국"
+            ,"genreAlt":"액션,어드벤처,판타지,SF"
+            ,"repNationNm":"미국"
+            ,"repGenreNm":"액션"
+            ,"img":""
+            ,"directors":[{"peopleNm":"가렛 에드워즈"}]
+            ,"companys":[]
+          }
+          ,{"movieCd":"20164622"
+            ,"movieNm":"메가 사이클론 스톰"
+            ,"movieNmEn":"SUPER STORM"
+            ,"prdtYear":"2011"
+            ,"openDt":"20161121"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Canada.png"
+            ,"nationAlt":"캐나다"
+            ,"genreAlt":"액션,드라마,SF"
+            ,"repNationNm":"캐나다"
+            ,"repGenreNm":"액션"
+            ,"img":""
+            ,"directors":[{"peopleNm":"쉘든 윌슨"}]
+            ,"companys":[]
+          }
+          ,{"movieCd":"20165982"
+            ,"movieNm":"원나잇 스캔들: 모닝 애프터"
+            ,"movieNmEn":"The Morning After"
+            ,"prdtYear":"2015"
+            ,"openDt":"20160805"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/America.png"
+            ,"nationAlt":"미국"
+            ,"genreAlt":"멜로/로맨스,코미디"
+            ,"repNationNm":"미국"
+            ,"repGenreNm":"멜로/로맨스"
+            ,"img":""
+            ,"directors":[{"peopleNm":"산라 J. 켈"}]
+            ,"companys":[]
+          }
+          ,{"movieCd":"20163285"
+            ,"movieNm":"드롭박스"
+            ,"movieNmEn":"The Drop Box"
+            ,"prdtYear":"2015"
+            ,"openDt":"20160519"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국,미국"
+            ,"genreAlt":"다큐멘터리"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"다큐멘터리"
+            ,"img":""
+            ,"directors":[{"peopleNm":"브라이언 아이비"}]
+            ,"companys":[{"companyCd":"20160101","companyNm":"Arbella Studio"},{"companyCd":"20160102","companyNm":"킨드리드 이미지"}]
+          }
+          ,{"movieCd":"20160876"
+            ,"movieNm":"어린 형수 - 무삭제판"
+            ,"movieNmEn":""
+            ,"prdtYear":"2016"
+            ,"openDt":"20161013"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"멜로/로맨스"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"멜로/로맨스"
+            ,"img":""
+            ,"directors":[{"peopleNm":"최우성"}]
+            ,"companys":[{"companyCd":"20158088","companyNm":"핵존슨"}]
+          }
+          ,{"movieCd":"20168148"
+            ,"movieNm":"꿈꾸는 나비"
+            ,"movieNmEn":"A Dreaming Butterfly"
+            ,"prdtYear":"2016"
+            ,"openDt":"20160812"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"미스터리,스릴러"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"미스터리"
+            ,"img":""
+            ,"directors":[{"peopleNm":"이상화"}]
+            ,"companys":[{"companyCd":"20061720","companyNm":"굿픽처스"}]
+          }
+          ,{"movieCd":"20169034"
+            ,"movieNm":"불량소녀, 너를 응원해!"
+            ,"movieNmEn":"Flying Colors"
+            ,"prdtYear":"2015"
+            ,"openDt":"20160921"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Japan.png"
+            ,"nationAlt":"일본"
+            ,"genreAlt":"드라마"
+            ,"repNationNm":"일본"
+            ,"repGenreNm":"드라마"
+            ,"img":""
+            ,"directors":[{"peopleNm":"도이 노부히로"}]
+            ,"companys":[]
+          }
+          ,{"movieCd":"20162221"
+            ,"movieNm":"죄인"
+            ,"movieNmEn":""
+            ,"prdtYear":"2015"
+            ,"openDt":"20161129"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"액션,코미디"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"액션"
+            ,"img":""
+            ,"directors":[{"peopleNm":"김종호"}]
+            ,"companys":[{"companyCd":"20141212","companyNm":"영화사 조선호랑이"}]
+          }
+          ,{"movieCd":"20160221"
+            ,"movieNm":"에곤 쉴레: 욕망이 그린 그림"
+            ,"movieNmEn":"Egon Schiele: Death and the Maiden"
+            ,"prdtYear":"2016"
+            ,"openDt":"20161222"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Austria.png"
+            ,"nationAlt":"오스트리아,룩셈부르크"
+            ,"genreAlt":"드라마"
+            ,"repNationNm":"오스트리아"
+            ,"repGenreNm":"드라마"
+            ,"img":""
+            ,"directors":[{"peopleNm":"디에터 버너"}]
+            ,"companys":[]
+          }
+          ,{"movieCd":"20154428"
+            ,"movieNm":"야근 대신 뜨개질"
+            ,"movieNmEn":"The Knitting Club"
+            ,"prdtYear":"2016"
+            ,"openDt":"20161117"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"다큐멘터리"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"다큐멘터리"
+            ,"img":""
+            ,"directors":[{"peopleNm":"박소현"}]
+            ,"companys":[{"companyCd":"20100631","companyNm":"(주)영화사 진진"}]
+          }
+          ,{"movieCd":"20164204"
+            ,"movieNm":"정사: 불륜의 맛 무삭제판"
+            ,"movieNmEn":""
+            ,"prdtYear":"2016"
+            ,"openDt":"20161229"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"멜로/로맨스,드라마"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"멜로/로맨스"
+            ,"img":""
+            ,"directors":[{"peopleNm":"이민"}]
+            ,"companys":[{"companyCd":"20063099","companyNm":"(주)케이알씨지"}]
+          }
+          ,{"movieCd":"20168232"
+            ,"movieNm":"친구 누나 일본판"
+            ,"movieNmEn":""
+            ,"prdtYear":"2016"
+            ,"openDt":"20161229"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"멜로/로맨스"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"멜로/로맨스"
+            ,"img":""
+            ,"directors":[{"peopleNm":"김정오"}]
+            ,"companys":[{"companyCd":"20161021","companyNm":"(주)영화사가을"}]
+          }
+          ,{"movieCd":"20168085"
+            ,"movieNm":"미용실 : 특별한 서비스"
+            ,"movieNmEn":""
+            ,"prdtYear":"2016"
+            ,"openDt":"20161229"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"멜로/로맨스"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"멜로/로맨스"
+            ,"img":""
+            ,"directors":[{"peopleNm":"이리단"}]
+            ,"companys":[{"companyCd":"20160321","companyNm":"대호필름"},{"companyCd":"20154628","companyNm":"(주)영화사 사계절"}]
+          }
+          ,{"movieCd":"20166826"
+            ,"movieNm":"내 친구의 아내 2"
+            ,"movieNmEn":""
+            ,"prdtYear":"2016"
+            ,"openDt":"20161229"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"멜로/로맨스,드라마"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"멜로/로맨스"
+            ,"img":""
+            ,"directors":[{"peopleNm":"이도시"}]
+            ,"companys":[{"companyCd":"20140708","companyNm":"(주)매니아22 "}]
+          }
+          ,{"movieCd":"20168233"
+            ,"movieNm":"내 남편의 친구"
+            ,"movieNmEn":""
+            ,"prdtYear":"2016"
+            ,"openDt":"20161229"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/Korea.png"
+            ,"nationAlt":"한국"
+            ,"genreAlt":"멜로/로맨스"
+            ,"repNationNm":"한국"
+            ,"repGenreNm":"멜로/로맨스"
+            ,"img":""
+            ,"directors":[{"peopleNm":"김정오"}]
+            ,"companys":[{"companyCd":"20161021","companyNm":"(주)영화사가을"}]
+          }
+          ,{"movieCd":"20166984"
+            ,"movieNm":"위험한 유혹"
+            ,"movieNmEn":"As I Lay Dying"
+            ,"prdtYear":"2013"
+            ,"openDt":"20161228"
+            ,"typeNm":"장편"
+            ,"prdtStatNm":"개봉"
+            ,"nationImg":"./css/images/America.png"
+            ,"nationAlt":"미국"
+            ,"genreAlt":"드라마"
+            ,"repNationNm":"미국"
+            ,"repGenreNm":"드라마"
+            ,"img":""
+            ,"directors":[{"peopleNm":"제임스 프랭코"}]
+            ,"companys":[]
+          }
+        ]
+    </grid>
+    <button onclick="setPaging()" style="">setPaging</button>
+    <ul id="pagingul"></ul>
+    <script>
+  function paging(grid, currentPage) {
+    let pageCount = 5; //페이징에 나타낼 페이지 수
+    let totalPage = grid.getPageCount();
+    if(totalPage<pageCount){
+      pageCount=totalPage;
+    }
+    let pageGroup = Math.ceil(currentPage / pageCount); // 페이지 그룹
+    let last = pageGroup * pageCount; //화면에 보여질 마지막 페이지 번호
+    if (last > totalPage) {
+      last = totalPage;
+    }
+    let first = last - (pageCount - 1); //화면에 보여질 첫번째 페이지 번호
+    let next = last + 1;
+    let prev = first - 1;
+    let pageHtml = "";
+    if (prev > 0) {
+      pageHtml += "<li><a href='#' id='prev'> prev </a></li>";
+    }
+    //페이징 번호 표시
+    for (var i = first; i <= last; i++) {
+      if (currentPage == i) {
+        pageHtml +=
+                "<li class='on'><a href='#' id='" + i + "'>" + i + "</a></li>";
+      } else {
+        pageHtml += "<li><a href='#' id='" + i + "'>" + i + "</a></li>";
+      }
+    }
+    if (last < totalPage) {
+      pageHtml += "<li><a href='#' id='next'> next </a></li>";
+    }
+    $("#pagingul").html(pageHtml);
+    //페이징 번호 클릭 이벤트
+    $("#pagingul li a").click(function () {
+       let $id = $(this).attr("id");
+       selectedPage = $(this).text();
+       if ($id == "next") selectedPage = next;
+       if ($id == "prev") selectedPage = prev;
+       //페이징 표시 재호출
+       paging(grid, selectedPage);
+       console.log("selectedPage" ,selectedPage);
+       grid.setPage(selectedPage);
+    });
+  }
+    </script>
+</body>
+</html>
