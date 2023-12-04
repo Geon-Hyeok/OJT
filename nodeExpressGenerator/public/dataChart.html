@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html style="width: 1280px; height: 1024px;">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="/wai/wai.js"></script>
+    <link href="/wai/default.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div id="div1" class="" style="position: absolute; left: 104px; top: 40px; width: 880px; height: 152px; border: 2px solid black;">
+        <div id="div3" style="position: absolute; left: 192px; top: 24px; width: 40px; height: 32px;">
+            <label id="label1" style="position: absolute; left: -48px; top: 0px; width: 88px; height: 32px; font-size: 20px;">입사 날짜</label>
+            <dateedit id="dateedit1" dateOrder="yyyymmdd" dateSeparator="-" style="position: absolute; left: 44px; top: 0px; width: 128px; height: 32px;"></dateedit>
+            <dateedit id="dateedit2" dateOrder="yyyymmdd" dateSeparator="-" style="position: absolute; left: 192px; top: 0px; width: 128px; height: 32px;"></dateedit>
+        </div>
+        <label id="label2" style="position: absolute; left: 192px; top: 88px; width: 40px; height: 32px; font-size: 20px;">부서</label>
+        <codecombo id="codecombo1" labelStyle="margin-left: 0px; display: none; width: 0px; height: 100%;" idField="code" textField="title" style="position: absolute; left: 236px; top: 88px; width: 200px; height: 32px;">
+            "columns":[{"field":"code","title":"부서코드","sortable":true,"align":"center","width":118},{"field":"title","title":"부서명","sortable":true,"align":"center","width":118}],
+            "data":[]
+        </codecombo>
+        <label id="label3" style="position: absolute; left: 368px; top: 24px; width: 12px; height: 32px; font-size: 20px;">~</label>
+        <button id="button1" style="position:absolute;left:752px;top:104px;width:120px;height:40px;">검색</button>
+    </div>
+    <button id="button2" disabled style="position:absolute;left:224px;top:240px;width:216px;height:48px;">Pie Chart</button>
+    <button id="button3" disabled style="position: absolute; left: 600px; top: 240px; width: 216px; height: 48px;">Doughnut Chart</button>
+    <div id="div2" style="position: absolute; left: 104px; top: 336px; width: 884px; height: 404px; border: 2px solid black;">
+        <chart id="chart1" type="pie" style="position: absolute; left: 0px; top: 0px; width: 884px; height: 404px; display: none;">
+            "data" : {
+              "labels":[]
+              ,"datasets" : [
+                {"label":""
+                  ,"borderWidth":0
+                  ,"hoverBorderColor":""
+                  ,"hoverBorderWidth":0
+                  ,"backgroundColor":["rgba(100,149,237,1)","rgba(255,0,0,1)","rgba(105,105,105,1)","rgba(255,255,0,1)"]
+                  ,"borderColor":["rgba(100,149,237,1)","rgba(255,0,0,1)","rgba(105,105,105,1)","rgba(255,255,0,1)"]
+                  ,"hoverBackgroundColor":["rgba(0,0,128,1)","rgba(0,0,128,1)","rgba(0,0,128,1)","rgba(255,255,255,1)"]
+                  ,"data":[]
+                }
+              ]
+            },
+            "option" : {
+              "responsive":false
+              ,"title":{"display":true,"position":"top"}
+              ,"legend":{"display":true,"reverse":false,"position":"top","labels":{"usePointStyle":false}}
+              ,"showPieceLabel":{"enabled":false}
+              ,"tooltips":{"enabled":true,"mode":"nearest","intersect":true,"displayColors":true}
+              ,"animation":{"animateScale":false}
+            }
+        </chart>
+        <chart id="chart2" style="position: absolute; left: 0px; top: 0px; width: 884px; height: 404px; display: none;">
+            "data":{"labels":[],"datasets":[{"label":"","backgroundColor":"","borderColor":"","borderWidth":0,"hoverBackgroundColor":"","hoverBorderColor":"","hoverBorderWidth":0,"data":[]}]},
+            "option":{"legend":{},"responsive":false}
+        </chart>
+    </div>
+</body>
+</html>

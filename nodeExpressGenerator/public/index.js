@@ -16,5 +16,10 @@
                 $('#iframe1').attr('src', '/codeRegistry.html');
             });
 
+            $('#side4').on('click', function () {
+                // Change the src attribute of the iframe for button 2
+                $('#iframe1').attr('src', '/dataChart.html');
+            });
+
             // Your existing JavaScript code...
         });
